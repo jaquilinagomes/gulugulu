@@ -168,8 +168,8 @@ function ProposalCard({
                                 isCancelled
                                     ? "text-base text-[#475569] line-through"
                                     : isSelected
-                                      ? "text-2xl text-[#13a4ec]"
-                                      : "text-xl text-[#0f172a]"
+                                        ? "text-2xl text-[#13a4ec]"
+                                        : "text-xl text-[#0f172a]"
                             }`}
                         >
                             {formatCurrency(total)}
