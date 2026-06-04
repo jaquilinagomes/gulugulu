@@ -5,8 +5,6 @@ import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-
-
 export const RequestTable = () => {
     const [prestacaoServico, setPrestacaoServico] = useState<any[]>([]);
 
@@ -17,7 +15,7 @@ export const RequestTable = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                "http://localhost:8080/prestacao_servico/",
+                `${process.env.NEXT_PUBLIC_API_URL}/prestacao_servico/`,
                 {
                     method: "GET",
                     headers: {

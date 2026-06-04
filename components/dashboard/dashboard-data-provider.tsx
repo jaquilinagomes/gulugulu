@@ -46,13 +46,14 @@ const DashboardDataContext = createContext<DashboardDataContextType>({
 });
 
 async function getRatesByUserId(id: string, token: string): Promise<RatesApiData | null> {
-  const response = await fetch(`http://localhost:8080/prestador/get-preco-hora/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/prestador/get-preco-hora/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
   if (!response.ok) return null;
   const payload: RatesApiResponse = await response.json();
@@ -60,7 +61,7 @@ async function getRatesByUserId(id: string, token: string): Promise<RatesApiData
 }
 
 async function getProposal(idUser: string, token: string): Promise<ProposalType[]> {
-  const response = await fetch(`http://localhost:8080/proposal/get-by-user-id/${idUser}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/proposal/get-by-user-id/${idUser}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
