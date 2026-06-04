@@ -38,13 +38,10 @@ export default function ProposalPage() {
             }
         }`
 
-
     function getAllProposta(): any {    
         const { data, loading, error } = useQuery<PropostaRequest>(dataQuery);
         return {loading, error, data };
     };
-
-
 
     const { loading, error, data } = getAllProposta();
     if (loading) return <p>Loading...</p>;
@@ -54,16 +51,16 @@ export default function ProposalPage() {
 
     return (
     <div>
-      <h1>Home</h1>
-      {propostas.map((propostaRequest: PropostaRequest) => (
-        <Proposal_Board
-        key={propostaRequest.id}
-        id={propostaRequest.id}
-        estado={propostaRequest.estado}
-        owner={propostaRequest.owner}
-        id_prestacao_servico={propostaRequest.id_prestacao_servico}
+        <h1>Home</h1>
+            {propostas.map((propostaRequest: PropostaRequest) => (
+            <Proposal_Board
+            key={propostaRequest.id}
+            id={propostaRequest.id}
+            estado={propostaRequest.estado}
+            owner={propostaRequest.owner}
+            id_prestacao_servico={propostaRequest.id_prestacao_servico}
         />
-      ))}
+    ))}
     </div>
-  );
+    );
 }
